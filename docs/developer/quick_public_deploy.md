@@ -2,8 +2,8 @@
 ```bash
 export AWS_ACCOUNT_ID="550017254839"
 export AWS_REGION="us-west-2"
-export AWS_ACCESS_KEY_ID="AKIAYAD4VIW3ZJ5W52HI"
-export AWS_SECRET_ACCESS_KEY="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"
+export AWS_ACCESS_KEY_ID=""
+export AWS_SECRET_ACCESS_KEY=""
 export AWS_KEYPAIR_NAME="spencer-aws-keypair"
 export AWS_ROLE_NAME=$(aws sts get-caller-identity --query "Arn" --output text | cut -d'/' -f2)
 export AWS_CLUSTER_NAME=$(aws eks list-clusters --region ${AWS_REGION} --output json | jq -r '.clusters[0]')
