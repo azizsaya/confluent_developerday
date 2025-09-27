@@ -19,6 +19,20 @@ Real-Time fraud detection is achieved by adding a few more components:
 - An OpenSearch Instance and OpenSearch Fully Managed Sink Connector to stream fraud events into dashboards for analysis and decision-making
 ---
 
+## Flow
+
+| Step                                                                                                                | Description                                                                                                                                                                                                                                      |
+| :------------------------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| (1) Transactions                                                                                                    | Customers initiate transactions which hit an Amazon EKS (Elastic Kubernetes Service) cluster running the Transactions UI application within the AWS VPC.                                                                                         |
+| (2) Transactions written to Oracle DB                                                                               | The EKS application writes the new transaction data to an Amazon EC2 instance running Oracle DB.                                                                                                                                                 |
+| (3) CDC Customer and Transaction information using the Confluent Fully managed Oracle xStream Connector             | The Oracle xStream Connector in Confluent Cloud uses Change Data Capture (CDC) to stream customer and transaction changes from the Oracle DB into a Confluent Cluster. The data is put into two separate topics: auth_user and user_transaction. |
+| (4) Confluent Cloud for Apache Flink uses rule-based Fraud detection to flag transactions and customers in realtime | Apache Flink is used within Confluent Cloud to perform rule-based fraud detection. It processes the auth_user and user_transaction streams, applies business logic (rules), and writes flagged results to the flagged_user topic.                |
+| (4) (Continued) auth_user and user_transaction topics sent to Redshift                                              | The data from the auth_user and user_transaction topics is sent back to Amazon Redshift via a Redshift Connector.                                                                                                                                |
+| (5) Flagged transactions sent to OpenSearch                                                                         | The flagged_user topic (containing fraud-flagged results) is sent to Amazon OpenSearch Service via an OpenSearch Sink Connector.                                                                                                                 |
+| (5) Flagged transactions sent to Snowflakle                                                                         | The flagged_user topic (containing fraud-flagged results) is sent to Snowflake Database via an Snowflake Sink Connector (using Snowpipe Streaming)                                                                                               |
+
+
+
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [Provision Infrastructure with Terraform](#provision-infrastructure-with-terraform)
