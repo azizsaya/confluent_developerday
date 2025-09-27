@@ -1,5 +1,9 @@
 /infra/Terraform/.terraform/
 /infra/Terraform/*.pem
+/infra/Terraform/*.tfvars
+/infra/Terraform/*.tfvars.json
+/infra/Terraform/*.tfstate
+/infra/Terraform/*.tfstate.*
 /webapp/fraud_detection/db.sqlite3
 /webapp/local.env
 .DS_Store
