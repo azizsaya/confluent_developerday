@@ -1,9 +1,9 @@
-# Real Time Fraud Detection With Confluent Kafka and Flink
+# Real Time Fraud Detection With Confluent Cloud's Kafka and Flink
 This project will enable you to provision and test **real time** fraud detection using Connectors, Kafka event streams & real time Flink processing all easily orchestrated on Confluent Cloud. 
 
 Fraud detection is crucial for protecting the financial assets of individuals and organizations in an increasingly digital world, leveraging analytical technologies to identify and prevent unethical activities and costly consequences. As digital transactions become more common, the complexity of fraud schemes also increases, requiring sophisticated detection methods. Modern methods like integrating advanced analytical and artificial intelligence algorithms help in identifying complex fraudulent patterns within vast datasets. 
 
-This project demonstrates how financial institutions can capture fraudulent transactions in real-time from databases by leveraging stream processing and connectors. Through stream processing with Flink, transactions are joined, filtered, aggregated and analyzed in real time, offering a robust solution for modern fraud detection.
+This project demonstrates how Financial institutions can capture fraudulent transactions in real-time from OLTP databases,POS Terminals and Payment gateways by leveraging stream processing and connectors. Through stream processing with Flink, transactions are joined, filtered, aggregated and analyzed in real time, offering a robust solution for modern fraud detection.
 
 ## Project Diagram
 ![architecture_diagram.png](img/architecture.png)
@@ -11,12 +11,13 @@ The project was built to reflect a typical software production environment. It c
 - An EKS Kubernetes cluster hosts an app that can be accessed via the web
 - An Oracle DB
 
-Real-Time fraud detection is achieved by adding a few more components:
+Real-Time fraud detection is achieved by adding below mentioned components:
 - A Kafka Cluster to store, stream & manage transaction & fraud events
 - An Oracle XStream Connector to stream database entries as Kafka events.
 - A Flink Compute Pool to enrich transaction events from Oracle and morph them into data products for real-time fraud analysis 
-- A Redshift Instance and Redshift Fully Managed Sink Connector to stream authentication and user transaction events for storage
-- An OpenSearch Instance and OpenSearch Fully Managed Sink Connector to stream fraud events into dashboards for analysis and decision-making
+- A Redshift Instance and Redshift fully managed sink Connector to stream authentication and user transaction events for storage
+- An OpenSearch Instance and OpenSearch fully managed sink Connector to stream fraud events into dashboards for analysis and decision-making
+- A Snowflake database and Snowflake fully managed sink Connector to stream fraud events for complex analytics
 ---
 
 ## Flow
@@ -36,7 +37,7 @@ Real-Time fraud detection is achieved by adding a few more components:
 ## Table of Contents
 1. [Prerequisites](#prerequisites)
 2. [Provision Infrastructure with Terraform](#provision-infrastructure-with-terraform)
-3. [Labs](#labs)
+3. [Step-by-step Instructions](#labs)
 4. [Clean-Up](#clean-up)
 ---
 
