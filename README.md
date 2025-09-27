@@ -1,9 +1,9 @@
 # Real Time Fraud Detection With Confluent Cloud's Kafka and Flink
-This project will enable you to provision and test **real time** fraud detection using Connectors, Kafka event streams & real time Flink processing all easily orchestrated on Confluent Cloud. 
+This project will enable the provisioning and testing of real-time fraud detection pipelines, leveraging Connectors for data ingestion, Kafka event streams for scalable messaging, and Flink for low-latency stream processing—governed by Schema Registry for consistent data contracts—all fully orchestrated and managed within Confluent Cloud
 
-Fraud detection is crucial for protecting the financial assets of individuals and organizations in an increasingly digital world, leveraging analytical technologies to identify and prevent unethical activities and costly consequences. As digital transactions become more common, the complexity of fraud schemes also increases, requiring sophisticated detection methods. Modern methods like integrating advanced analytical and artificial intelligence algorithms help in identifying complex fraudulent patterns within vast datasets. 
+Fraud detection is a critical safeguard for protecting the financial assets of both individuals and organizations in today’s digital-first world. As online transactions surge, fraud schemes are becoming increasingly complex, demanding smarter and more adaptive defenses. By harnessing advanced analytics and artificial intelligence, modern detection systems can uncover hidden patterns in massive datasets—spotting sophisticated fraud attempts before they cause significant damage.
 
-This project demonstrates how Financial institutions can capture fraudulent transactions in real-time from OLTP databases,POS Terminals and Payment gateways by leveraging stream processing and connectors. Through stream processing with Flink, transactions are joined, filtered, aggregated and analyzed in real time, offering a robust solution for modern fraud detection.
+This project demonstrates how financial institutions can detect fraudulent transactions in real time by streaming data directly from OLTP databases, POS terminals, and payment gateways through Kafka Connectors. Using Flink-based stream processing, transactions are continuously joined, filtered, aggregated, and analyzed with low latency—delivering a scalable and resilient foundation for modern fraud detection.
 
 ## Project Diagram
 ![architecture_diagram.png](img/architecture.png)
@@ -102,11 +102,10 @@ nano terraform.tfvars
 
 All variables in the table below must be set in the terraform.tfvars file in order for Terraform to provision the infrastructure.
 
-| Key Name                   |  Type  | Description                           | Required     |
-|:---------------------------|:------:|:--------------------------------------|-------------:|
-| confluent_cloud_api_key    | string | [Key From CC](#create_cc_api_key)     |         True |
-| confluent_cloud_api_secret | string | [Secret From CC](#create_cc_api_key)  |         True |
-
+```bash
+confluent_cloud_api_key    = "xxxxxxxxxxx"
+confluent_cloud_api_secret = "xxxxxxxxxxxxxxxxxxxxxxxx"
+  ```
 
 
 ### Provision Infrastructure via Terraform
