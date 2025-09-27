@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.13.3",
-  "serial": 185,
+  "serial": 137,
   "lineage": "3e5dd753-c2f0-80d8-aeea-c95de97c5264",
   "outputs": {
     "aws_caller_info": {
@@ -1366,18 +1366,18 @@
             "arn": "arn:aws:redshift:us-east-1:374103992698:cluster:frauddetectiondemo-redshift-cluster-6332e013",
             "automated_snapshot_retention_period": 1,
             "availability_zone": "us-east-1b",
-            "availability_zone_relocation_enabled": true,
+            "availability_zone_relocation_enabled": false,
             "cluster_identifier": "frauddetectiondemo-redshift-cluster-6332e013",
-            "cluster_namespace_arn": "arn:aws:redshift:us-east-1:374103992698:namespace:5ad902a2-5999-442f-b127-eff1f8694035",
+            "cluster_namespace_arn": "arn:aws:redshift:us-east-1:374103992698:namespace:b45e6cd8-c77f-42c7-8871-4eb076c240eb",
             "cluster_nodes": [
               {
                 "node_role": "SHARED",
-                "private_ip_address": "10.0.2.18",
-                "public_ip_address": "54.227.86.16"
+                "private_ip_address": "10.0.2.154",
+                "public_ip_address": "98.87.139.39"
               }
             ],
             "cluster_parameter_group_name": "default.redshift-2.0",
-            "cluster_public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCkzEg2pI432xc6kvmJb/Ke/Cujal9P+dskwhAYTBepTSdC4FZOOJ9J+9ZCCF05pdvNJmXM/G3YTo1SxVK/dgHfJMRHcCaCrA3oQ1UZprRLgMtE7Uqx7jn/bATTb8k7HcVxx5+cQZQImH4cBPY3X2JdRb8Y3//yKqekMWbZmkBuORohyOKXPpIzmLYVi2imxm9Gw6TT4ZqlhHvMoxKql4o3DJft/ei+kaTtGTBz3zXLi7ToQRE9M8Hy/FfIDxJBOp5UKapFCeuXMJyXEK0+0Wwpm9Xjal1WtlOjPgPZnmzapznMFWlF3hiNpggFzcKSRww+m0cUPAY7jCIcsdlMCG5D Amazon-Redshift\n",
+            "cluster_public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAdefEb1Q8WOQ3hmkMA1eK33kY2o3lle2iSRIT4n5FaSjrDQEbwpMjlB1PzYkH3/mpJOHhtN+iZgfhNiZSzzwxzlrXI4aN1ZoUXr8yNGbOa72+buF2J96PbuFhhQJrgwKkz5b32Pt6UahX/loum6r2Zl7a/tEedoePXRPlYH0tLb2SUak2eyt0kUhra3xoBzn7F+3BdNZA/TRkmSNAPyTKVy0SjfFvA/gn/x/AmlkDmLTHLxbSMzXSL0dmmofMqgdeREWY/lo00pVYfsstyF0hsRZqQLbjMomy1/YYEHtxAIaOVx1Aw7w6FVCxyT94g169gXNbNXB4beoY/jvhN/Gr Amazon-Redshift\n",
             "cluster_revision_number": "124422",
             "cluster_subnet_group_name": "frauddetectiondemo-redshift-subnet-group-6332e013",
             "cluster_type": "single-node",
@@ -1386,7 +1386,7 @@
             "default_iam_role_arn": "",
             "dns_name": "frauddetectiondemo-redshift-cluster-6332e013.cvc43699rhpg.us-east-1.redshift.amazonaws.com",
             "elastic_ip": null,
-            "encrypted": true,
+            "encrypted": false,
             "endpoint": "frauddetectiondemo-redshift-cluster-6332e013.cvc43699rhpg.us-east-1.redshift.amazonaws.com:5439",
             "enhanced_vpc_routing": false,
             "final_snapshot_identifier": null,
@@ -1414,7 +1414,7 @@
             "number_of_nodes": 1,
             "owner_account": null,
             "port": 5439,
-            "preferred_maintenance_window": "sat:08:00-sat:08:30",
+            "preferred_maintenance_window": "tue:04:00-tue:04:30",
             "publicly_accessible": true,
             "skip_final_snapshot": true,
             "snapshot_arn": null,
@@ -1482,237 +1482,6 @@
           "identity_schema_version": 0,
           "private": "bnVsbA==",
           "dependencies": [
-            "aws_subnet.public_subnets",
-            "aws_vpc.main",
-            "data.aws_availability_zones.available",
-            "random_id.env_display_id"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_redshiftdata_statement",
-      "name": "create_schema",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "cluster_identifier": "frauddetectiondemo-redshift-cluster-6332e013",
-            "database": "frauddetection",
-            "db_user": "admin",
-            "id": "dd0736e8-a4b5-4d7f-a476-c092a85778af",
-            "parameters": [],
-            "secret_arn": "",
-            "sql": "create schema sample authorization admin;",
-            "statement_name": null,
-            "timeouts": null,
-            "with_event": null,
-            "workgroup_name": ""
-          },
-          "sensitive_attributes": [],
-          "identity_schema_version": 0,
-          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
-          "dependencies": [
-            "aws_redshift_cluster.redshift_cluster",
-            "aws_redshift_subnet_group.redshift_subnet_group",
-            "aws_security_group.redshift_sg",
-            "aws_subnet.public_subnets",
-            "aws_vpc.main",
-            "data.aws_availability_zones.available",
-            "random_id.env_display_id"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_redshiftdata_statement",
-      "name": "grant_all_schema",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "cluster_identifier": "frauddetectiondemo-redshift-cluster-6332e013",
-            "database": "frauddetection",
-            "db_user": "admin",
-            "id": "3ed9974f-be43-4924-b471-74e3a4b02958",
-            "parameters": [],
-            "secret_arn": "",
-            "sql": "GRANT ALL ON SCHEMA sample TO admin;",
-            "statement_name": null,
-            "timeouts": null,
-            "with_event": null,
-            "workgroup_name": ""
-          },
-          "sensitive_attributes": [],
-          "identity_schema_version": 0,
-          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
-          "dependencies": [
-            "aws_redshift_cluster.redshift_cluster",
-            "aws_redshift_subnet_group.redshift_subnet_group",
-            "aws_redshiftdata_statement.create_schema",
-            "aws_redshiftdata_statement.grant_create_schema",
-            "aws_redshiftdata_statement.grant_select_schema",
-            "aws_redshiftdata_statement.grant_usage_schema",
-            "aws_security_group.redshift_sg",
-            "aws_subnet.public_subnets",
-            "aws_vpc.main",
-            "data.aws_availability_zones.available",
-            "random_id.env_display_id"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_redshiftdata_statement",
-      "name": "grant_create_database",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "cluster_identifier": "frauddetectiondemo-redshift-cluster-6332e013",
-            "database": "frauddetection",
-            "db_user": "admin",
-            "id": "1a32da70-d777-4e15-9811-be096a70341b",
-            "parameters": [],
-            "secret_arn": "",
-            "sql": "GRANT CREATE ON DATABASE frauddetection TO admin;",
-            "statement_name": null,
-            "timeouts": null,
-            "with_event": null,
-            "workgroup_name": ""
-          },
-          "sensitive_attributes": [],
-          "identity_schema_version": 0,
-          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
-          "dependencies": [
-            "aws_redshift_cluster.redshift_cluster",
-            "aws_redshift_subnet_group.redshift_subnet_group",
-            "aws_redshiftdata_statement.create_schema",
-            "aws_redshiftdata_statement.grant_all_schema",
-            "aws_redshiftdata_statement.grant_create_schema",
-            "aws_redshiftdata_statement.grant_select_schema",
-            "aws_redshiftdata_statement.grant_usage_schema",
-            "aws_security_group.redshift_sg",
-            "aws_subnet.public_subnets",
-            "aws_vpc.main",
-            "data.aws_availability_zones.available",
-            "random_id.env_display_id"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_redshiftdata_statement",
-      "name": "grant_create_schema",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "cluster_identifier": "frauddetectiondemo-redshift-cluster-6332e013",
-            "database": "frauddetection",
-            "db_user": "admin",
-            "id": "10bdfd32-7021-4759-b814-a6ddca560615",
-            "parameters": [],
-            "secret_arn": "",
-            "sql": "GRANT CREATE ON SCHEMA sample TO admin;",
-            "statement_name": null,
-            "timeouts": null,
-            "with_event": null,
-            "workgroup_name": ""
-          },
-          "sensitive_attributes": [],
-          "identity_schema_version": 0,
-          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
-          "dependencies": [
-            "aws_redshift_cluster.redshift_cluster",
-            "aws_redshift_subnet_group.redshift_subnet_group",
-            "aws_redshiftdata_statement.create_schema",
-            "aws_redshiftdata_statement.grant_usage_schema",
-            "aws_security_group.redshift_sg",
-            "aws_subnet.public_subnets",
-            "aws_vpc.main",
-            "data.aws_availability_zones.available",
-            "random_id.env_display_id"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_redshiftdata_statement",
-      "name": "grant_select_schema",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "cluster_identifier": "frauddetectiondemo-redshift-cluster-6332e013",
-            "database": "frauddetection",
-            "db_user": "admin",
-            "id": "32c474b0-5258-4318-8a57-6f92ba7e25bb",
-            "parameters": [],
-            "secret_arn": "",
-            "sql": "GRANT SELECT ON ALL TABLES IN SCHEMA sample TO admin;",
-            "statement_name": null,
-            "timeouts": null,
-            "with_event": null,
-            "workgroup_name": ""
-          },
-          "sensitive_attributes": [],
-          "identity_schema_version": 0,
-          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
-          "dependencies": [
-            "aws_redshift_cluster.redshift_cluster",
-            "aws_redshift_subnet_group.redshift_subnet_group",
-            "aws_redshiftdata_statement.create_schema",
-            "aws_redshiftdata_statement.grant_create_schema",
-            "aws_redshiftdata_statement.grant_usage_schema",
-            "aws_security_group.redshift_sg",
-            "aws_subnet.public_subnets",
-            "aws_vpc.main",
-            "data.aws_availability_zones.available",
-            "random_id.env_display_id"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_redshiftdata_statement",
-      "name": "grant_usage_schema",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 0,
-          "attributes": {
-            "cluster_identifier": "frauddetectiondemo-redshift-cluster-6332e013",
-            "database": "frauddetection",
-            "db_user": "admin",
-            "id": "cd0397a9-3220-40f7-8855-f2a7c580b6e1",
-            "parameters": [],
-            "secret_arn": "",
-            "sql": "GRANT USAGE ON SCHEMA sample TO admin;",
-            "statement_name": null,
-            "timeouts": null,
-            "with_event": null,
-            "workgroup_name": ""
-          },
-          "sensitive_attributes": [],
-          "identity_schema_version": 0,
-          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
-          "dependencies": [
-            "aws_redshift_cluster.redshift_cluster",
-            "aws_redshift_subnet_group.redshift_subnet_group",
-            "aws_redshiftdata_statement.create_schema",
-            "aws_security_group.redshift_sg",
             "aws_subnet.public_subnets",
             "aws_vpc.main",
             "data.aws_availability_zones.available",
@@ -2166,7 +1935,7 @@
                 "cidr_blocks": [
                   "0.0.0.0/0"
                 ],
-                "description": null,
+                "description": "",
                 "from_port": 9092,
                 "ipv6_cidr_blocks": [],
                 "prefix_list_ids": [],
@@ -2216,7 +1985,7 @@
             "prefix_list_ids": null,
             "protocol": "tcp",
             "security_group_id": "sg-094f09358b8e6c4f7",
-            "security_group_rule_id": "sgr-036669b11018281ab",
+            "security_group_rule_id": "sgr-0f06d6d42a038f218",
             "self": false,
             "source_security_group_id": "sg-094f09358b8e6c4f7",
             "timeouts": null,

@@ -111,11 +111,11 @@ Run the following commands from the same directory as the `README.md` file in or
 
 ---
 
-## Labs
+## Workflows
 
-There are two labs to demonstrate two different use cases with Confluent Cloud. 
-1. [Lab 1](./LAB1/LAB1-README.md) shows the path to migration from legacy systems like Oracle to modern data warehouses like Redshift by leveraging Confluent Cloud fully managed connectors. User authentication and transaction events will be streamed from a Fraud Detection website. 
-2. [Lab 2](./LAB2/LAB2-README.md) showcases developing stream processing applications like filters, aggregations and joins in real-time with Flink and sending the newly enriched fraud data into OpenSearch dashboards or other analytics applications. 
+There are two workflows to step-by-step demonstrate two different use cases with Confluent Cloud. 
+1. [Workflow 1](./LAB1/LAB1-README.md) shows the path to migration from legacy systems like Oracle to modern data warehouses like Redshift by leveraging Confluent Cloud fully managed connectors. User authentication and transaction events will be streamed from a Fraud Detection website. 
+2. [Workflow 2](./LAB2/LAB2-README.md) showcases developing stream processing applications like filters, aggregations and joins in real-time with Flink and sending the newly enriched fraud data into OpenSearch dashboards and Snowflake database through Snowpipe Streeaming to facitate further analytics 
 
 ---
 ## Clean-up

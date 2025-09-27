@@ -46,7 +46,7 @@ resource "aws_redshift_cluster" "redshift_cluster" {
   vpc_security_group_ids    = [aws_security_group.redshift_sg.id]
   
   # Explicitly disable multi-AZ to prevent auto-failover conflicts
-  multi_az = false
+  # multi_az = false
 
   tags = {
     Name = "${var.prefix}-redshift-cluster-${random_id.env_display_id.hex}"
