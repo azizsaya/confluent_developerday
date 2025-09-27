@@ -1,13 +1,13 @@
-# Real Time Fraud Detection With Confluent Cloud
-This demo will enable you to provision and test **real time** fraud detection using Connectors, Kafka event streams & real time Flink processing all easily orchestrated on Confluent Cloud. 
+# Real Time Fraud Detection With Confluent Kafka and Flink
+This project will enable you to provision and test **real time** fraud detection using Connectors, Kafka event streams & real time Flink processing all easily orchestrated on Confluent Cloud. 
 
 Fraud detection is crucial for protecting the financial assets of individuals and organizations in an increasingly digital world, leveraging analytical technologies to identify and prevent unethical activities and costly consequences. As digital transactions become more common, the complexity of fraud schemes also increases, requiring sophisticated detection methods. Modern methods like integrating advanced analytical and artificial intelligence algorithms help in identifying complex fraudulent patterns within vast datasets. 
 
-This demo demonstrates how financial institutions can capture fraudulent transactions in real-time from databases by leveraging stream processing and connectors. Through stream processing with Flink, transactions are joined, filtered, aggregated and analyzed in real time, offering a robust solution for modern fraud detection.
+This project demonstrates how financial institutions can capture fraudulent transactions in real-time from databases by leveraging stream processing and connectors. Through stream processing with Flink, transactions are joined, filtered, aggregated and analyzed in real time, offering a robust solution for modern fraud detection.
 
-## Demo Diagram
+## Project Diagram
 ![architecture_diagram.png](img/architecture.png)
-The Demo was built to reflect a typical software production environment. It contains many common components such as:
+The project was built to reflect a typical software production environment. It contains many common components such as:
 - An EKS Kubernetes cluster hosts an app that can be accessed via the web
 - An Oracle DB
 
@@ -29,17 +29,9 @@ Real-Time fraud detection is achieved by adding a few more components:
 ## Prerequisites
 
 ### Install Supporting Software
-In this section we will install and validate all required software for the demo with the following command
+In this section we will install and validate all required software for the project with the following command
 
 1. Follow the steps below to install required software:
-   - **macOS** users will install everything from a terminal using Homebrew:
-      ```bash
-      brew install awscli
-      brew tap hashicorp/tap
-      brew install hashicorp/tap/terraform
-      brew install confluentinc/tap/cli
-      brew install kubectl
-      ```
 
    - **Windows** users will follow the installation instructions below:
       - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
@@ -76,7 +68,7 @@ Confluent Cloud `Cloud resource management` API keys are required to provision t
 
 ## Clone the Repo
 ```
-git clone https://github.com/confluentinc/demo-dsp-fraud-detection.git
+git clone https://github.com/azizsaya/confluent_developerday.git
 ```
 
 ## Provision Infrastructure with Terraform
@@ -127,7 +119,7 @@ There are two labs to demonstrate two different use cases with Confluent Cloud.
 
 ---
 ## Clean-up
-Once you are finished with this demo, remember to destroy the resources you created, to avoid incurring charges. You can always spin it up again anytime you want.
+Once you are finished with this project, remember to destroy the resources you created, to avoid incurring charges. You can always spin it up again anytime you want.
 
 Before tearing down the infrastructure, delete the Oracle XStream, Redshift and OpenSearch connectors, as they were created outside of Terraform and won't be automatically removed:
 
