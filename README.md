@@ -1,9 +1,9 @@
-# Real Time Fraud Detection With Confluent Cloud's Kafka and Flink
-This project will enable the provisioning and testing of real-time fraud detection pipelines, leveraging Connectors for data ingestion, Kafka event streams for scalable messaging, and Flink for low-latency stream processing—governed by Schema Registry for consistent data contracts—all fully orchestrated and managed within Confluent Cloud
+# Real-Time Fraud Detection with Confluent Cloud's Kafka and Flink
+This project will enable the provisioning and testing of real-time fraud detection pipelines, leveraging xonnectors for Data ingestion, Kafka event streams for scalable messaging, and Flink for low-latency stream processing — governed by Schema Registry for consistent data contracts — all fully orchestrated and managed within Confluent Cloud
 
 Fraud detection is a critical safeguard for protecting the financial assets of both individuals and organizations in today’s digital-first world. As online transactions surge, fraud schemes are becoming increasingly complex, demanding smarter and more adaptive defenses. By harnessing advanced analytics and artificial intelligence, modern detection systems can uncover hidden patterns in massive datasets—spotting sophisticated fraud attempts before they cause significant damage.
 
-This project demonstrates how financial institutions can detect fraudulent transactions in real time by streaming data directly from OLTP databases, POS terminals, and payment gateways through Kafka Connectors. Using Flink-based stream processing, transactions are continuously joined, filtered, aggregated, and analyzed with low latency—delivering a scalable and resilient foundation for modern fraud detection.
+This project demonstrates how financial institutions can detect fraudulent transactions in real time by streaming events directly from OLTP databases, POS terminals, and payment gateways via Kafka Connectors. Using Flink-based stream processing, transactions are continuously joined, filtered, aggregated, and analyzed with low latency — delivering a scalable and resilient foundation for real-time fraud detection.
 
 ## Project Diagram
 ![architecture_diagram.png](img/architecture.png)
